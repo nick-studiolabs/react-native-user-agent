@@ -37,15 +37,7 @@ public class RNUserAgentModule extends ReactContextBaseJavaModule {
     }
 
     protected String getUserAgent() {
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                return WebSettings.getDefaultUserAgent(getReactApplicationContext());
-            } else {
-                return System.getProperty("http.agent");
-            }
-        } catch (RuntimeException e) {
-            return System.getProperty("http.agent");
-        }
+        return System.getProperty("http.agent");
     }
 
     @ReactMethod
